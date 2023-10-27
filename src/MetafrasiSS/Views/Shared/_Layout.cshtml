@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MetafrasiSS</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/boxicons.min.css">
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <a href="#" class="logo">Metafrasi SS</a>
+
+        <nav class="navbar">
+            <a href="#" class="active">Home</a>
+            <a href="#" style="--i:1">Projects</a>
+            <a href="#" style="--i:2">Plans</a>
+            <a href="#" style="--i:3">Stories</a>
+        </nav>
+    </header>
+
+    <main id="main">
+        @RenderBody()
+    </main>
+</body>
+
+@* <body>
+<header class="header-top">
+
+<div class="navbar">
+<div class="navbar-item navbar-title">
+<a href="./home">Metafrasi SS</a>
+</div>
+<div class="navbar-right-container">
+<div class="navbar-item">
+<a class="btn-primary" href="./home">Cadastro</a>
+</div>
+<div class="navbar-item">
+<a class="btn-primary" href="./home">Login</a>
+</div>
+</div>
+</div>
+</header>
+
+<div class="container">
+<main id="main">
+@RenderBody()
+</main>
+</div>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
+</body> *@
+
+</html>
