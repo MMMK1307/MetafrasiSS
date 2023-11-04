@@ -1,15 +1,31 @@
-﻿function reveal() {
-    var reveals = document.querySelectorAll(".reveal");
+﻿//function reveal() {
+//    let reveals = document.querySelectorAll(".reveal");
 
-    for (var i = 0; i < reveals.length; i++) {
-        var windowHeight = window.innerHeight;
-        var elementTop = reveals[i].getBoundingClientRect().top;
-        var elementVisible = 150;
+//    for (let i = 0; i < reveals.length; i++) {
+//        const windowHeight = window.innerHeight;
+//        const elementTop = reveals[i].getBoundingClientRect().top;
+//        const elementVisible = 150;
 
-        if (elementTop < windowHeight - elementVisible) {
-            reveals[i].classList.add("active");
+//        if (elementTop < windowHeight - elementVisible) {
+//            reveals[i].classList.add("active");
+//        } else {
+//            reveals[i].classList.remove("active");
+//        }
+//    }
+//}
+
+//window.addEventListener("scroll", reveal);
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        console.log(entry);
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        } else {
+            entry.target.classList.remove('active');
         }
-    }
-}
+    });
+});
 
-window.addEventListener("scroll", reveal);
+const hiddenElements = document.querySelectorAll('.reveal');
+hiddenElements.forEach((el) => observer.observe(el));
