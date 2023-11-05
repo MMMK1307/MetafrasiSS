@@ -20,24 +20,24 @@
 
 
 <section class="home">
-    <div class="home-box">
+    <div class="home-box" loading="lazy">
         <div class="home-content">
 
-            <h3>Hello, It's me</h3>
-            <h1 class="big-text">Gummercynd</h1>
-            <h3>And I'm a <span class="typed-text glow-text"></span></h3>
-            <p>It's a pleasure to meet you</p>
+            <h3 class="reveal fade-bottom">Hello, It's me</h3>
+            <h1 class="big-text reveal fade-right">Gummercynd</h1>
+            <h3 class="reveal fade-top">And I'm a <span class="typed-text glow-text"></span></h3>
+            <p class="reveal fade-left">It's a pleasure to meet you</p>
 
             <div class="home-sci">
-                <a href="#" style="--i:4"><i class='bx bxl-instagram'></i></a>
-                <a href="#" style="--i:5"><i class='bx bxl-youtube'></i></a>
-                <a href="#" style="--i:6"><i class='bx bxl-github'></i></a>
+                <a href="#" style="--i:4" class="reveal fade-left"><i class='bx bxl-instagram'></i></a>
+                <a href="#" style="--i:5" class="reveal fade-left"><i class='bx bxl-youtube'></i></a>
+                <a href="#" style="--i:6" class="reveal fade-left"><i class='bx bxl-github'></i></a>
             </div>
-            <a href="#" class="btn-box">More About Cynd</a>
+            <a href="#" class="btn-box reveal fade-top">More About Cynd</a>
         </div>
     </div>
     <div class="cynd-box">
-        <img src="~/imgs/Web/Cynd.webp" id="cynd" alt="">
+        <a><img src="~/imgs/Web/Cynd.webp" id="cynd" alt=""></a>
     </div>
 </section>
 
@@ -56,7 +56,7 @@
             This is a placeholder
             This is a placeholde...
         </p>
-        <a href="#" class="btn-box">More About Us?</a>
+        <a href="#" class="btn-box reveal fade-top">More About Us?</a>
     </div>
 </section>
 
@@ -64,8 +64,8 @@
     <div class="services" id="services">
         <h1 class="sub-title big-text">Our <span class="glow-text">Services</span></h1>
         <div class="services-list">
-            <div>
-                <i class='bx bx-code-curly glow-text' style="color: #0ef"></i>
+            <div class="reveal fade-top">
+                <i class="bx bx-code-curly glow-text" style="color: #0ef"></i>
                 <h2>Code Translation!</h2>
                 <p>
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
@@ -76,10 +76,10 @@
                     and more recently with desktop publishing software like Aldus PageMaker including versions of
                     Lorem Ipsum.
                 </p>
-                <a class="read" href="#">learn more?</a>
+                <a class="read reveal fade-top" href="#">learn more?</a>
             </div>
-            <div>
-                <i class='bx bx-package glow-text' style="color: #0ef"></i>
+            <div class="reveal fade-top">
+                <i class="bx bx-package glow-text" style="color: #0ef"></i>
                 <h2>Personal Space</h2>
                 <p>
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
@@ -89,13 +89,11 @@
                     popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
                     and more recently with desktop publishing software like Aldus PageMaker including versions of
                     Lorem Ipsum.
-
-
                 </p>
-                <a class="read" href="#">learn more?</a>
+                <a class="read reveal fade-top" href="#">learn more?</a>
             </div>
-            <div>
-                <i class='bx bx-headphone glow-text' style="color: #0ef"></i>
+            <div class="reveal fade-top">
+                <i class="bx bx-headphone glow-text" style="color: #0ef"></i>
                 <h2>Wholesome suport</h2>
                 <p>
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
@@ -106,7 +104,7 @@
                     and more recently with desktop publishing software like Aldus PageMaker including versions of
                     Lorem Ipsum.
                 </p>
-                <a class="read" href="#">learn more?</a>
+                <a class="read reveal fade-top" href="#">learn more?</a>
             </div>
         </div>
     </div>
@@ -125,8 +123,8 @@
                 <div class="info">
                     <span>Python</span>
                 </div>
-                <div class="progress-line python">
-                    <span></span>
+                <div class="progress-line python reveal animate">
+                    <span class="reveal animate-span"></span>
                 </div>
             </div>
             <div class="bar">
@@ -134,8 +132,8 @@
                 <div class="info">
                     <span>C Sharp</span>
                 </div>
-                <div class="progress-line c-sharp">
-                    <span></span>
+                <div class="progress-line c-sharp reveal animate">
+                    <span class="reveal animate-span"></span>
                 </div>
             </div>
             <div class="bar">
@@ -143,8 +141,8 @@
                 <div class="info">
                     <span>C++</span>
                 </div>
-                <div class="progress-line c-pp">
-                    <span></span>
+                <div class="progress-line c-pp reveal animate">
+                    <span class="reveal animate-span"></span>
                 </div>
             </div>
             <div class="bar">
@@ -152,8 +150,8 @@
                 <div class="info">
                     <span>JavaScript</span>
                 </div>
-                <div class="progress-line js">
-                    <span></span>
+                <div class="progress-line js reveal animate">
+                    <span class="reveal animate-span"></span>
                 </div>
             </div>
         </div>
@@ -187,3 +185,4 @@
 </script>
 
 <script src="~/js/typing.js"></script>
+<script src="~/js/site.js"></script>
