@@ -1,0 +1,15 @@
+﻿@using MetafrasiSS.Common.Constants;
+
+@if (TempData[Constants.ErrorMessage] is not null)
+{
+    <link rel="stylesheet" href="~/css/alert.css">
+    <div class="error-container msg-show">
+        <div class="icon">
+            <i class='bx bxs-error-alt'></i>
+        </div>
+        <span>@TempData[Constants.ErrorMessage]</span>
+        <div id="close-btn" class="close-btn">
+            <i class='bx bx-x-circle'></i>
+        </div>
+    </div>
+}
