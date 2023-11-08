@@ -1,0 +1,96 @@
+.error-container {
+    margin-top: 4rem;
+    background: red;
+    padding: 1rem 2rem;
+    max-width: 99%;
+    position: absolute;
+    overflow: hidden;
+    right: 0px;
+    top: 0.8rem;
+    border-radius: 4px;
+    border-left: 0.5rem solid darkred;
+    pointer-events: none;
+    opacity: 0;
+}
+
+    .error-container.msg-show {
+        opacity: 1;
+        pointer-events: auto;
+        animation: slide-msg 1s ease forwards;
+    }
+
+    .error-container.msg-hide {
+        animation: hide-msg 1s ease backwards;
+    }
+
+@keyframes slide-msg {
+    0% {
+        transform: translateX(100%);
+    }
+
+    40% {
+        transform: translateX(-10%);
+    }
+
+    80% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-10px);
+    }
+}
+
+@keyframes hide-msg {
+    0% {
+        opacity: 1;
+        transform: translateX(-10px);
+    }
+
+    40% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+
+    80% {
+        opacity: 1;
+        transform: translateX(-10%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.error-container .icon i {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    color: darkred;
+    font-size: 30px;
+}
+
+.error-container span {
+    font-size: 1.1rem;
+    color: white;
+}
+
+.error-container .close-btn {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+    .error-container .close-btn i {
+        color: white;
+        font-size: 1.3rem;
+        line-height: 2.5rem;
+        transition: 0.3s;
+    }
+
+        .error-container .close-btn i:hover {
+            color: darkred;
+        }

@@ -1,0 +1,19 @@
+﻿@{
+}
+
+<form asp-controller="Project" asp-action="Create" method="post" enctype="multipart/form-data">
+    <h2>Cadastrar novo Projeto</h2>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <input type="text"/>
+            </div>
+        </div>
+    </div>
+    
+    <input type="file" name="projectFile" />
+
+    <button type="submit">Cadastrar</button>
+</form>
