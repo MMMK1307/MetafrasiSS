@@ -454,24 +454,25 @@ body {
     animation: showText 0.5s 1s linear forwards;
 }
 
-.languages-bars .bar .progress-line {
-    position: relative;
-    border-radius: 10px;
-    width: 100%;
-    height: 5px;
-    background-color: #00000087;
-    transform: scaleX(0);
-    transform-origin: left;
-}
+    .languages-bars .bar .progress-line {
+        position: relative;
+        border-radius: 10px;
+        width: 100%;
+        height: 5px;
+        background-color: #00000087;
+        transform: scaleX(0);
+        transform-origin: left;
+    }
 
-.languages-bars .bar .progress-line span {
-    height: 100%;
-    background-color: #0ef;
-    position: absolute;
-    border-radius: 10px;
-    transform: scaleX(0);
-    transform-origin: left;
-}
+        .languages-bars .bar .progress-line span {
+            height: 100%;
+            background-color: #0ef;
+            position: absolute;
+            border-radius: 10px;
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: animate 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+        }
 
 .languages-bars .bar .progress-line span:hover {
     text-shadow: 0 0 2rem #0ef, 0 0 3rem #0ef, 0 0 4rem #0ef;
@@ -508,6 +509,7 @@ body {
     border-radius: 3px;
     top: -28px;
     right: -20px;
+    animation: showText 0.5s 1.5s linear forwards;
     opacity: 0;
 }
 
@@ -616,10 +618,6 @@ body {
 
 .active.animate {
     animation: animate 1s cubic-bezier(1, 0, 0.5, 1) forwards;
-}
-
-.active.animate-span {
-    animation: animate 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards;
 }
 
 @keyframes animate {
