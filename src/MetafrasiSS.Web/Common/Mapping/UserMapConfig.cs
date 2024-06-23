@@ -9,11 +9,11 @@ namespace MetafrasiSS.Web.Common.Mapping;
 
 public class UserMapConfig : IRegister
 {
-	public void Register(TypeAdapterConfig config)
-	{
-		config.NewConfig<User, ListUserModel>();
-		config.NewConfig<User, DataUserModel>();
-		config.NewConfig<LoginUserModel, LoginQuery>();
-		config.NewConfig<RegisterUserModel, RegisterUserCommand>();
-	}
+    public void Register(TypeAdapterConfig config)
+    {
+        config.NewConfig<User, ListUserModel>();
+        config.NewConfig<User, DataUserModel>();
+        config.NewConfig<LoginUserModel, LoginQuery>();
+        config.NewConfig<RegisterUserModel, RegisterUserCommand>();
+    }
 }

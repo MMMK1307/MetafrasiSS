@@ -4,29 +4,29 @@ namespace MetafrasiSS.Domain.ProjectAggregate.ValueObjects;
 
 public class ProjectId : AggregateRootId<Guid>
 {
-	public override Guid Value { get; protected set; }
+    private ProjectId(Guid value)
+    {
+        Value = value;
+    }
 
-	private ProjectId(Guid value)
-	{
-		Value = value;
-	}
+    private ProjectId()
+    {
+    }
 
-	public static ProjectId CreateUnique()
-	{
-		return new(Guid.NewGuid());
-	}
+    public override Guid Value { get; protected set; }
 
-	public static ProjectId Create(Guid value)
-	{
-		return new ProjectId(value);
-	}
+    public static ProjectId CreateUnique()
+    {
+        return new(Guid.NewGuid());
+    }
 
-	public override IEnumerable<object> GetEqualityComponents()
-	{
-		yield return Value;
-	}
+    public static ProjectId Create(Guid value)
+    {
+        return new ProjectId(value);
+    }
 
-	private ProjectId()
-	{
-	}
+    public override IEnumerable<object> GetEqualityComponents()
+    {
+        yield return Value;
+    }
 }

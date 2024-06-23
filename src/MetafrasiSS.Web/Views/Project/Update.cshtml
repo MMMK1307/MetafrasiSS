@@ -1,0 +1,28 @@
+﻿@using MetafrasiSS.Web.Models.ProjectModels;
+@model ProjectModel
+@{
+    ViewData["Title"] = "Update Project";
+}
+
+<div class="main-container">
+    <form asp-controller="Project" asp-action="Update" method="post" enctype="multipart/form-data">
+        <h2>Update Project</h2>
+        <hr />
+
+        <div asp-validation-summary="ModelOnly"></div>
+        <input type="hidden" name="id" value="@Model.Id.Value" />
+        <div>
+            <label asp-for="@Model.Name">Name</label>
+            <input asp-for="@Model.Name" autocomplete="Name" aria-required="true" />
+            <span class="text-error" asp-validation-for="@Model.Name"></span>
+        </div>
+
+        <div>
+            <label asp-for="@Model.Description">Description</label>
+            <input asp-for="@Model.Description" autocomplete="Description" aria-required="true" />
+            <span class="text-error" asp-validation-for="@Model.Description"></span>
+        </div>
+
+        <button type="submit">Update</button>
+    </form>
+</div>

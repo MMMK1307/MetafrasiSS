@@ -8,17 +8,17 @@ namespace MetafrasiSS.Infra.Persistence;
 
 public class IdDataContext : IdentityDbContext<DataUserModel, IdentityRole<Guid>, Guid>
 {
-	public IdDataContext(DbContextOptions<IdDataContext> options) : base(options)
-	{
-	}
+    public IdDataContext(DbContextOptions<IdDataContext> options) : base(options)
+    {
+    }
 
-	public DbSet<Project> Projects { get; set; }
+    public DbSet<Project> Projects { get; set; }
 
-	protected override void OnModelCreating(ModelBuilder modelBuilder)
-	{
-		modelBuilder
-			.ApplyConfigurationsFromAssembly(typeof(IdDataContext).Assembly);
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder
+            .ApplyConfigurationsFromAssembly(typeof(IdDataContext).Assembly);
 
-		base.OnModelCreating(modelBuilder);
-	}
+        base.OnModelCreating(modelBuilder);
+    }
 }

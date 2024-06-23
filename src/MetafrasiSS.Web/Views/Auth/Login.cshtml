@@ -1,0 +1,39 @@
+﻿@using MetafrasiSS.Web.Models.UserModels;
+@model LoginUserModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="main-container">
+    <form asp-controller="Auth" asp-action="Login" method="post" style="color: aliceblue;">
+
+        <h2>Login</h2>
+        <hr />
+
+        <div asp-validation-summary="ModelOnly"></div>
+
+        <div>
+            <label asp-for="@Model.Username">UserName</label>
+            <input asp-for="@Model.Username" autocomplete="username" aria-required="true" />
+            <span class="text-error" asp-validation-for="@Model.Username"></span>
+        </div>
+        
+        <div>
+            <label asp-for="@Model.Password">Password</label>
+            <input asp-for="@Model.Password" type="password" autocomplete="current-password" aria-required="true" />
+            <span class="text-error" asp-validation-for="@Model.Password"></span>
+        </div>
+        
+        <div style="margin-bottom: 0">
+            <label asp-for="@Model.RememberMe">
+                <input asp-for="@Model.RememberMe" />
+                <small>Remember Me!</small>
+            </label>
+        </div>
+
+        <label>
+            <button type="submit">Login</button>
+        </label>
+
+    </form>
+</div>

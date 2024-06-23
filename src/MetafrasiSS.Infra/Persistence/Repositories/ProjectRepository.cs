@@ -41,7 +41,7 @@ public class ProjectRepository : IProjectRepository
 
 	public async Task<Project> GetById(ProjectId projectId)
 	{
-		var project = await _dbContext.Projects.FirstOrDefaultAsync(x => x.Id == projectId);
+		var project = await _dbContext.Projects.AsNoTracking().FirstOrDefaultAsync(x => x.Id == projectId);
 
 		if (project is null)
 		{
@@ -53,7 +53,7 @@ public class ProjectRepository : IProjectRepository
 
 	public async Task<List<Project>> GetByUser(UserId userId)
 	{
-		var query = _dbContext.Projects.Where(x => x._userId == userId.Value);
+		var query = _dbContext.Projects.Where(x => x._userId == userId.Value).AsNoTracking();
 		var projects = await query.ToListAsync();
 
 		return projects;

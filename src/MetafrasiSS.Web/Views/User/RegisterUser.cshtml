@@ -1,3 +1,51 @@
-﻿@{
+﻿@using MetafrasiSS.Web.Models.UserModels;
 
+@model RegisterUserModel
+@{
+    ViewData["Title"] = "Registration";
 }
+
+<div class="main-container">
+    <form asp-controller="User" asp-action="RegisterUser" method="post" style="color: aliceblue;">
+
+        <h2>Registration</h2>
+        <hr />
+
+        <div asp-validation-summary="ModelOnly"></div>
+
+        <div>
+            <label asp-for="@Model.Name">Name</label>
+            <input asp-for="@Model.Name" autocomplete="Name" aria-required="true" />
+            <span class="text-error" asp-validation-for="@Model.Name"></span>
+        </div>
+
+        <div>
+            <label asp-for="@Model.Username">UserName</label>
+            <input asp-for="@Model.Username" autocomplete="username" aria-required="true" />
+            <span class="text-error" asp-validation-for="@Model.Username"></span>
+        </div>
+
+        <div>
+            <label asp-for="@Model.Email">Email</label>
+            <input asp-for="@Model.Email" autocomplete="Email" aria-required="true" />
+            <span class="text-error" asp-validation-for="@Model.Email"></span>
+        </div>
+
+        <div>
+            <label asp-for="@Model.Password">Password</label>
+            <input asp-for="@Model.Password" type="password" autocomplete="current-password" aria-required="true" />
+            <span class="text-error" asp-validation-for="@Model.Password"></span>
+        </div>
+
+        <div>
+            <label asp-for="@Model.ConfirmPassword">ConfirmPassword</label>
+            <input asp-for="@Model.ConfirmPassword" type="password" autocomplete="ConfirmPassword" aria-required="true" />
+            <span class="text-error" asp-validation-for="@Model.ConfirmPassword"></span>
+        </div>
+
+        <label>
+            <button type="submit">Register!</button>
+        </label>
+
+    </form>
+</div>

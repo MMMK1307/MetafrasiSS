@@ -116,17 +116,13 @@ body {
     z-index: 100;
 }
 
-    .header a {
-        cursor: pointer;
-    }
-
 .logo {
     position: relative;
     font-size: 1.5rem;
     color: white;
     text-decoration: none;
     font-weight: 700;
-    cursor: default;
+    cursor: pointer;
     opacity: 0;
     animation: slideRight 1s ease forwards;
 }
@@ -729,6 +725,52 @@ body {
         flex-direction: column;
     }
 }
+
+@media (max-width: 270px) {
+    .logo{
+        font-size: 1rem;
+    }
+}
+
+.btn-primary {
+    display: inline-block;
+    color: white;
+    padding: 0.5rem;
+    margin: 3%;
+    background-color: #0000002f;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px black;
+    transition: ease 0.3s;
+    text-align: center;
+    text-decoration: none;
+}
+
+    .btn-primary:hover {
+        box-shadow: 4px 4px 4px black;
+        background-color: #00000054;
+    }
+
+.btn-secondary {
+    display: inline-block;
+    color: white;
+    padding: 0.5rem;
+    margin: 3%;
+    background-color: #00000085;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px white;
+    transition: ease 0.3s;
+    text-align: center;
+    text-decoration: none;
+}
+
+    .btn-secondary:hover {
+        box-shadow: 4px 4px 4px white;
+        background-color: #00000054;
+    }
 
 /* 
 p {

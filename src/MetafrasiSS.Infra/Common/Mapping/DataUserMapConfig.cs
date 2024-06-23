@@ -4,8 +4,7 @@ namespace MetafrasiSS.Infra.Common.Mapping;
 
 public class DataUserMapConfig : IRegister
 {
-	public void Register(TypeAdapterConfig config)
-	{
-		
-	}
+    public void Register(TypeAdapterConfig config)
+    {
+    }
 }

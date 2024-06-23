@@ -5,43 +5,43 @@ namespace MetafrasiSS.Domain.ProjectAggregate.Entities;
 
 public class ProjectFile : Entity<ProjectFileId>
 {
-	public ProjectFile(
-		ProjectFileId id, 
-		string name, 
-		string content, 
-		DateTime created, 
-		DateTime updated) : base(id)
-	{
-		Name = name;
-		Content = content;
-		Created = created;
-		Updated = updated;
-	}
+    public ProjectFile(
+        ProjectFileId id,
+        string name,
+        string content,
+        DateTime created,
+        DateTime updated)
+        : base(id)
+    {
+        Name = name;
+        Content = content;
+        Created = created;
+        Updated = updated;
+    }
 
-	public string Name { get; } = null!;
+    protected ProjectFile()
+    {
+    }
 
-	public string Content { get; } = null!;
+    public string Name { get; } = null!;
 
-	public DateTime Created { get; }
+    public string Content { get; } = null!;
 
-	public DateTime Updated { get; }
+    public DateTime Created { get; }
 
-	public static ProjectFile Create(
-		string name,
-		string content,
-		DateTime created,
-		DateTime updated)
-	{
-		return new ProjectFile(
-			ProjectFileId.CreateUnique(),
-			name,
-			content,
-			created,
-			updated);
-	}
+    public DateTime Updated { get; }
 
-	protected ProjectFile()
-	{
-
-	}
+    public static ProjectFile Create(
+        string name,
+        string content,
+        DateTime created,
+        DateTime updated)
+    {
+        return new ProjectFile(
+            ProjectFileId.CreateUnique(),
+            name,
+            content,
+            created,
+            updated);
+    }
 }

@@ -9,63 +9,61 @@ namespace MetafrasiSS.Web.Common.Mapping;
 
 public class ProjectMapConfig : IRegister
 {
-	public void Register(TypeAdapterConfig config)
-	{
-		config.NewConfig<CreateProjectModel, CreateProjectCommand>();
-		config.NewConfig<Project, ProjectModel>()
-			.Map(dest => dest.Files, src => src.Files.Adapt<List<ProjectFileModel>>());
-	}
+    public void Register(TypeAdapterConfig config)
+    {
+        config.NewConfig<CreateProjectModel, CreateProjectCommand>();
+        config.NewConfig<Project, ProjectModel>()
+            .Map(dest => dest.Files, src => src.Files.Adapt<List<ProjectFileModel>>());
+    }
 }
 
 public static class ProjectMapping
 {
-	public static ProjectModel ToProjectModel(this Project project)
-	{
-		return new ProjectModel()
-		{
-			Id = ProjectId.Create(project.Id.Value),
-			Name = project.Name,
-			Description = project.Description,
-			Files = project.Files.ToList().ToProjectFileModel(),
-			Created = project.Created,
-			Updated = project.Updated,
-			UserId = project.UserId
-		};
-	}
+    public static ProjectModel ToProjectModel(this Project project)
+    {
+        return new ProjectModel()
+        {
+            Id = ProjectId.Create(project.Id.Value),
+            Name = project.Name,
+            Description = project.Description,
+            Files = project.Files.ToList().ToProjectFileModel(),
+            Created = project.Created,
+            Updated = project.Updated,
+            UserId = project.UserId,
+        };
+    }
 
-	public static List<ProjectModel> ToProjectModel(this List<Project> projects)
-	{
-		List<ProjectModel> models = new();
+    public static List<ProjectModel> ToProjectModel(this List<Project> projects)
+    {
+        List<ProjectModel> models = new();
 
-		for (int i = 0; i < projects.Count; i++)
-		{
-			models.Add(projects[i].ToProjectModel());
-		}
+        for (int i = 0; i < projects.Count; i++)
+        {
+            models.Add(projects[i].ToProjectModel());
+        }
 
-		return models;
-	}
+        return models;
+    }
 
-	public static ProjectFileModel ToProjectFileModel(this ProjectFile file)
-	{
-		return new ProjectFileModel()
-		{
-			Id = file.Id,
-			Name = file.Name,
-			Content = file.Content,
-			Created = file.Created,
-			Updated = file.Updated
-		};
-	}
+    public static ProjectFileModel ToProjectFileModel(this ProjectFile file)
+    {
+        return new ProjectFileModel(
+             file.Id,
+             file.Name,
+             file.Content,
+             file.Created,
+             file.Updated);
+    }
 
-	public static List<ProjectFileModel> ToProjectFileModel(this List<ProjectFile> file)
-	{
-		var models = new List<ProjectFileModel>();
+    public static List<ProjectFileModel> ToProjectFileModel(this List<ProjectFile> file)
+    {
+        var models = new List<ProjectFileModel>();
 
-		for (int i = 0; i < file.Count; i++)
-		{
-			models.Add(file[i].ToProjectFileModel());
-		}
+        for (int i = 0; i < file.Count; i++)
+        {
+            models.Add(file[i].ToProjectFileModel());
+        }
 
-		return models;
-	}
+        return models;
+    }
 }

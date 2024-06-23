@@ -8,22 +8,22 @@ namespace MetafrasiSS.Application.ProjectApp.Queries.GetProjectById;
 
 public class GetProjectByIdHandler : IRequestHandler<GetProjectByIdQuery, ErrorOr<Project>>
 {
-	private readonly IProjectRepository _projectRepository;
+    private readonly IProjectRepository _projectRepository;
 
-	public GetProjectByIdHandler(IProjectRepository projectRepository)
-	{
-		_projectRepository = projectRepository;
-	}
+    public GetProjectByIdHandler(IProjectRepository projectRepository)
+    {
+        _projectRepository = projectRepository;
+    }
 
-	public async Task<ErrorOr<Project>> Handle(GetProjectByIdQuery request, CancellationToken cancellationToken)
-	{
-		var project = await _projectRepository.GetById(request.ProjectId);
+    public async Task<ErrorOr<Project>> Handle(GetProjectByIdQuery request, CancellationToken cancellationToken)
+    {
+        var project = await _projectRepository.GetById(request.ProjectId);
 
-		if (project is null)
-		{
-			return Errors.Project.NotFound;
-		}
+        if (project is null)
+        {
+            return Errors.Project.NotFound;
+        }
 
-		return project;
-	}
+        return project;
+    }
 }

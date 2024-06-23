@@ -8,19 +8,19 @@ namespace MetafrasiSS.Web.Models.ProjectModels;
 
 public class ProjectModel
 {
-	public ProjectId Id { get; set; }
+    public ProjectId Id { get; set; }
 
-	[MaxLength(500)]
-	public string Name { get; set; }
+    [MaxLength(500)]
+    public string Name { get; set; }
 
-	[MaxLength(500)]
-	public string Description { get; set; }
+    [MaxLength(500)]
+    public string Description { get; set; }
 
-	public DateTime Created { get; set; }
+    public DateTime Created { get; set; }
 
-	public DateTime Updated { get; set; }
+    public DateTime Updated { get; set; }
 
-	public UserId UserId { get; set; }
+    public UserId UserId { get; set; }
 
-	public List<ProjectFileModel> Files { get; set; }
+    public List<ProjectFileModel> Files { get; set; }
 }

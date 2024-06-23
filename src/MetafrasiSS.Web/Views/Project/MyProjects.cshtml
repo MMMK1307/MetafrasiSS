@@ -1,0 +1,128 @@
+﻿@using MetafrasiSS.Web.Models.ProjectModels;
+@model List<ProjectModel>
+@{
+    ViewData["Title"] = "My Projects";
+    var projects = Model;
+}
+
+<link rel="stylesheet" href="~/css/projects.css">
+
+<div class="main-container">
+
+    <a asp-controller="Project" asp-action="Create" class="btn-secondary">Create a Project</a>
+
+    @if(projects.Count < 1)
+    {
+        <h2 style="text-align: center;"> --- You have no projects --- </h2>
+    }
+
+    @for (int i = 0; i < projects.Count; i++)
+    {
+        <div class="project-panel-container">
+            <div class="project-panel">
+                <div class="project-panel-title">
+                    <h2>@projects[i].Name</h2>
+                </div>
+                <div class="project-panel-desc">
+                    <div class="project-panel-title-small">
+                        Description:
+                    </div>
+                    @projects[i].Description
+                </div>
+                <div class="project-panel-multi">
+                    <div class="project-panel-desc">
+                        Files:
+                        @for (int ii = 0; ii < projects[i].Files.Count; ii++)
+                        {
+                            <div class="project-panel-title-small">
+                                @projects[i].Files[ii].Name
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="project-panel-multi">
+                    <div class="project-panel-desc">
+                        <div class="project-panel-title-small">
+                            Created At:
+                        </div>
+                        @projects[i].Created.ToString("dd/MM/yyyy")
+                    </div>
+                    <div class="project-panel-desc">
+                        <div class="project-panel-title-small">
+                            Updated at:
+                        </div>
+                        @projects[i].Updated.ToString("dd/MM/yyyy")
+                    </div>
+                </div>
+                <div class="project-panel-multi">
+                    <div class="project-panel-desc">
+                        <div class="project-panel-title-small">
+                        </div>
+                        <a asp-controller="Project" asp-action="Update" class="btn-primary" asp-route-ProjectId="@projects[i].Id.Value">Edit</a>
+                    </div>
+                    <div class="project-panel-desc">
+                        <div class="project-panel-title-small">
+                        </div>
+                        <a asp-controller="Project" asp-action="Update" class="btn-primary">Files</a>
+                    </div>
+                </div>
+            </div>
+
+            @{
+                i++;
+                @if (i < projects.Count)
+                {
+                    <div class="project-panel">
+                        <div class="project-panel-title">
+                            <h2>@projects[i].Name</h2>
+                        </div>
+                        <div class="project-panel-desc">
+                            <div class="project-panel-title-small">
+                                Description:
+                            </div>
+                            @projects[i].Description
+                        </div>
+                        <div class="project-panel-multi">
+                            <div class="project-panel-desc">
+                                Files:
+                                @for (int ii = 0; ii < projects[i].Files.Count; ii++)
+                                {
+                                    <div class="project-panel-title-small">
+                                        @projects[i].Files[ii].Name
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="project-panel-multi">
+                            <div class="project-panel-desc">
+                                <div class="project-panel-title-small">
+                                    Created At:
+                                </div>
+                                @projects[i].Created.ToString("dd/MM/yyyy")
+                            </div>
+                            <div class="project-panel-desc">
+                                <div class="project-panel-title-small">
+                                    Updated at:
+                                </div>
+                                @projects[i].Updated.ToString("dd/MM/yyyy")
+                            </div>
+                        </div>
+                        <div class="project-panel-multi">
+                            <div class="project-panel-desc">
+                                <div class="project-panel-title-small">
+                                </div>
+                                <a asp-controller="Project" asp-action="Update" class="btn-primary" asp-route-ProjectId="@projects[i].Id.Value">Edit</a>
+                            </div>
+                            <div class="project-panel-desc">
+                                <div class="project-panel-title-small">
+                                </div>
+                                <a asp-controller="Project" asp-action="Update" class="btn-primary">Files</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+
+        </div>
+    }
+</div>

@@ -9,51 +9,56 @@ namespace MetafrasiSS.Web.Controllers;
 
 public class UserController : BaseController
 {
-	private readonly ISender _mediator;
-	private readonly IMapper _mapper;
+    private readonly IMapper _mapper;
+    private readonly ISender _mediator;
 
-	public UserController(ISender mediator, IMapper mapper)
-	{
-		_mediator = mediator;
-		_mapper = mapper;
-	}
+    public UserController(ISender mediator, IMapper mapper)
+    {
+        _mediator = mediator;
+        _mapper = mapper;
+    }
 
-	public IActionResult RegisterUser()
-	{
-		return View();
-	}
+    public IActionResult RegisterUser()
+    {
+        return View();
+    }
 
-	public IActionResult UpdateUser()
-	{
-		return View();
-	}
+    [HttpPost]
+    public async Task<IActionResult> RegisterUser(RegisterUserModel user)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(user);
+        }
 
-	[HttpPost]
-	public async Task<IActionResult> RegisterUser(RegisterUserModel user)
-	{
-		var command = _mapper.Map<RegisterUserCommand>(user);
+        var command = _mapper.Map<RegisterUserCommand>(user);
 
-		var result = await _mediator.Send(command);
+        var result = await _mediator.Send(command);
 
-		if (result.IsError)
-		{
-			Problem(result.Errors, View());
-		}
+        if (result.IsError)
+        {
+            Problem(result.Errors, View());
+        }
 
-		return View();
-	}
+        return View();
+    }
 
-	public async Task<IActionResult> UpdateUser(ListUserModel user)
-	{
-		var command = _mapper.Map<UpdateUserCommand>(user);
+    public IActionResult UpdateUser()
+    {
+        return View();
+    }
 
-		var result = await _mediator.Send(command);
+    public async Task<IActionResult> UpdateUser(ListUserModel user)
+    {
+        var command = _mapper.Map<UpdateUserCommand>(user);
 
-		if (result.IsError)
-		{
-			Problem(result.Errors, View());
-		}
+        var result = await _mediator.Send(command);
 
-		return RedirectToAction(nameof(RegisterUser));
-	}
+        if (result.IsError)
+        {
+            Problem(result.Errors, View());
+        }
+
+        return RedirectToAction(nameof(RegisterUser));
+    }
 }

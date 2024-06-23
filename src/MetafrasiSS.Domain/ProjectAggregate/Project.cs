@@ -7,58 +7,59 @@ namespace MetafrasiSS.Domain.ProjectAggregate;
 
 public class Project : AggregateRoot<ProjectId, Guid>
 {
-	public Project(
-		ProjectId id,
-		string name,
-		string description,
-		List<ProjectFile> files,
-		DateTime created,
-		DateTime updated,
-		UserId userId) : base(id)
-	{
-		Name = name;
-		Description = description;
-		_files = files;
-		Created = created;
-		Updated = updated;
-		UserId = userId;
-	}
+    public Project(
+        ProjectId id,
+        string name,
+        string description,
+        List<ProjectFile> files,
+        DateTime created,
+        DateTime updated,
+        UserId userId)
+        : base(id)
+    {
+        Name = name;
+        Description = description;
+        _files = files;
+        Created = created;
+        Updated = updated;
+        UserId = userId;
+    }
 
-	public string Name { get; } = null!;
+    protected Project()
+    {
+    }
 
-	public string Description { get; } = null!;
+    public string Name { get; } = null!;
 
-	public DateTime Created { get; }
+    public string Description { get; } = null!;
 
-	public DateTime Updated { get; }
+    public DateTime Created { get; }
 
-	private readonly List<ProjectFile> _files = new();
+    public DateTime Updated { get; }
 
-	public IReadOnlyList<ProjectFile> Files => _files.AsReadOnly();
+    private readonly List<ProjectFile> _files = new();
 
-	public Guid _userId;
+    public IReadOnlyList<ProjectFile> Files => _files.AsReadOnly();
 
-	public UserId UserId { get => UserId.Create(_userId); set => _userId = value.Value; }
+    public Guid _userId;
 
-	protected Project()
-	{
-	}
+    public UserId UserId { get => UserId.Create(_userId); set => _userId = value.Value; }
 
-	public static Project Create(
-		string name,
-		string description,
-		List<ProjectFile> files,
-		DateTime created,
-		DateTime updated,
-		UserId userId)
-	{
-		return new Project(
-			ProjectId.CreateUnique(),
-			 name,
-			 description,
-			 files,
-			 created,
-			 updated,
-			 userId);
-	}
+    public static Project Create(
+        string name,
+        string description,
+        List<ProjectFile> files,
+        DateTime created,
+        DateTime updated,
+        UserId userId)
+    {
+        return new Project(
+            ProjectId.CreateUnique(),
+            name,
+            description,
+            files,
+            created,
+            updated,
+            userId);
+    }
 }

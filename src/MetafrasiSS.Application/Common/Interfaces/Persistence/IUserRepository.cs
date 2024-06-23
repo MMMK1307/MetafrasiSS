@@ -7,7 +7,7 @@ namespace MetafrasiSS.Application.Common.Interfaces.Persistence;
 
 public interface IUserRepository
 {
-	Task<bool> Create(User userData);
+	Task<ErrorOr<User>> Create(User userData);
 
 	Task<bool> Update(User user);
 

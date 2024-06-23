@@ -21,5 +21,9 @@ public partial class Errors
 		public static Error NotFound => Error.NotFound(
 			code: "Auth.NotFound",
 			description: "AuthUser couldn't be found");
+
+		public static Error InvalidPassword => Error.Validation(
+			code: "Auth.InvalidPassword",
+			description: "The Password must have a number (0-9), a Uppercase and an alphanumeric character");
 	}
 }

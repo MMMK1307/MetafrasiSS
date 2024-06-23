@@ -8,16 +8,16 @@ namespace MetafrasiSS.Application;
 
 public static class DependencyConfiguration
 {
-	public static IServiceCollection AddApplication(this IServiceCollection services)
-	{
-		services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+    public static IServiceCollection AddApplication(this IServiceCollection services)
+    {
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
-		services.AddScoped(
-			typeof(IPipelineBehavior<,>),
-			typeof(ValidationBehavior<,>));
+        services.AddScoped(
+            typeof(IPipelineBehavior<,>),
+            typeof(ValidationBehavior<,>));
 
-		services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+        services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
-		return services;
-	}
+        return services;
+    }
 }

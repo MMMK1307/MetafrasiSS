@@ -7,22 +7,32 @@ namespace MetafrasiSS.Web.Controllers;
 
 public class BaseController : Controller
 {
-	public IActionResult Problem(List<Error> errors, IActionResult pageRedirect)
-	{
-		var builder = new StringBuilder();
+    public IActionResult ToHome()
+    {
+        return RedirectToAction(controllerName: "Home", actionName: "Index");
+    }
+ 
+    public IActionResult ToLogin()
+    {
+        return RedirectToAction(actionName: "Login", controllerName: "Auth");
+    }
 
-		for (int i = 0; i < errors.Count; i++)
-		{
-			builder.Append($"Error. {errors[i].Description} \n");
-		}
+    public IActionResult Problem(List<Error> errors, IActionResult pageRedirect)
+    {
+        var builder = new StringBuilder();
 
-		TempData[Constants.ErrorMessage] = builder.ToString();
+        for (int i = 0; i < errors.Count; i++)
+        {
+            builder.Append($"Error. {errors[i].Description} \n");
+        }
 
-		return pageRedirect;
-	}
+        TempData[Constants.ErrorMessage] = builder.ToString();
 
-	public IActionResult DefaultProblem(List<Error> errors)
-	{
-		return Problem(errors, RedirectToAction(nameof(HomeController.Index)));
-	}
+        return pageRedirect;
+    }
+
+    public IActionResult DefaultProblem(List<Error> errors)
+    {
+        return Problem(errors, RedirectToAction(nameof(HomeController.Index)));
+    }
 }

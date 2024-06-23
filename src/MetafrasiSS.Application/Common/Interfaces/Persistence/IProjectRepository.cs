@@ -6,13 +6,13 @@ namespace MetafrasiSS.Application.Common.Interfaces.Persistence;
 
 public interface IProjectRepository
 {
-	Task<Project> Create(Project project);
+    Task<Project> Create(Project project);
 
-	Task<Project> Update(Project newProject);
+    Task<Project> Update(Project newProject);
 
-	Task<Project> Delete(Project project);
+    Task<Project> Delete(Project project);
 
-	Task<Project> GetById(ProjectId projectId);
+    Task<Project> GetById(ProjectId projectId);
 
-	Task<List<Project>> GetByUser(UserId userId);
+    Task<List<Project>> GetByUser(UserId userId);
 }

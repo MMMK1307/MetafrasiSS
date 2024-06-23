@@ -13,53 +13,60 @@ namespace MetafrasiSS.Web.Controllers;
 
 public class AuthController : BaseController
 {
-	private readonly ISender _mediator;
-	private readonly IMapper _mapper;
+    private readonly ISender _mediator;
+    private readonly IMapper _mapper;
 
-	public AuthController(ISender mediator, IMapper mapper)
-	{
-		_mediator = mediator;
-		_mapper = mapper;
-	}
+    public AuthController(ISender mediator, IMapper mapper)
+    {
+        _mediator = mediator;
+        _mapper = mapper;
+    }
 
-	public IActionResult Login()
-	{
-		return View();
-	}
+    public IActionResult Login()
+    {
+        var model = new LoginUserModel();
 
-	[HttpPost]
-	public async Task<IActionResult> Login(LoginUserModel user)
-	{
-		await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
+        return View(model);
+    }
 
-		var command = _mapper.Map<LoginQuery>(user);
+    [HttpPost]
+    public async Task<IActionResult> Login(LoginUserModel user)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(user);
+        }
 
-		var result = await _mediator.Send(command);
+        await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
 
-		if (result.IsError)
-		{
-			return Problem(result.Errors, View());
-		}
+        var command = new LoginQuery(user.Username, user.Password, user.RememberMe);
 
-		return RedirectToAction(nameof(HomeController.Index));
-	}
+        var result = await _mediator.Send(command);
 
-	public async Task<IActionResult> Logout()
-	{
-		var user = await _mediator.Send(new GetUserByClaimsQuery(User));
+        if (result.IsError)
+        {
+            return Problem(result.Errors, View(user));
+        }
 
-		if (user.IsError)
-		{
-			return Problem(user.Errors, View());
-		}
+        return ToHome();
+    }
 
-		var result = await _mediator.Send(new LogoutQuery(UserId.Create(user.Value.Id.Value)));
+    public async Task<IActionResult> Logout()
+    {
+        var user = await _mediator.Send(new GetUserByClaimsQuery(User));
 
-		if (result.IsError)
-		{
-			return Problem(result.Errors, RedirectToAction(nameof(HomeController.Index)));
-		}
+        if (user.IsError)
+        {
+            return Problem(user.Errors, View());
+        }
 
-		return RedirectToAction(nameof(HomeController.Index));
-	}
+        var result = await _mediator.Send(new LogoutQuery(UserId.Create(user.Value.Id.Value)));
+
+        if (result.IsError)
+        {
+            return Problem(result.Errors, RedirectToAction(nameof(HomeController.Index)));
+        }
+
+        return ToHome();
+    }
 }

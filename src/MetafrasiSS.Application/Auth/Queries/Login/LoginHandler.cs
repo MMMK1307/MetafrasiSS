@@ -6,17 +6,17 @@ namespace MetafrasiSS.Application.Auth.Queries.Login;
 
 public class LoginHandler : IRequestHandler<LoginQuery, ErrorOr<bool>>
 {
-	private readonly IUserRepository _userRepository;
+    private readonly IUserRepository _userRepository;
 
-	public LoginHandler(IUserRepository userRepository)
-	{
-		_userRepository = userRepository;
-	}
+    public LoginHandler(IUserRepository userRepository)
+    {
+        _userRepository = userRepository;
+    }
 
-	public async Task<ErrorOr<bool>> Handle(LoginQuery request, CancellationToken cancellationToken)
-	{
-		var result = await _userRepository.Login(request.UserName, request.Password, request.RememberMe);
+    public async Task<ErrorOr<bool>> Handle(LoginQuery request, CancellationToken cancellationToken)
+    {
+        var result = await _userRepository.Login(request.UserName, request.Password, request.RememberMe);
 
-		return result;
-	}
+        return result;
+    }
 }

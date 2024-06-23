@@ -27,7 +27,7 @@ public class UserRepository : IUserRepository
 		_dbContext = dbContext;
 	}
 
-	public async Task<bool> Create(User userData)
+	public async Task<ErrorOr<User>> Create(User userData)
 	{
 		var user = Activator.CreateInstance<DataUserModel>();
 
@@ -39,9 +39,14 @@ public class UserRepository : IUserRepository
 
 		var result = await _userManager.CreateAsync(user, userData.Password);
 
+		if (!result.Succeeded)
+		{
+			return Errors.Auth.InvalidPassword;
+		}
+
 		await _userManager.SetLockoutEnabledAsync(user, false);
 
-		return result.Succeeded;
+		return userData;
 	}
 
 	public async Task<bool> Update(User user)

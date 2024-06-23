@@ -30,8 +30,6 @@ public class RegisterUserHandler : IRequestHandler<RegisterUserCommand, ErrorOr<
 			_dateTimeProvider.UtcNow, 
 			_dateTimeProvider.UtcNow);
 
-		await _userRepository.Create(user);
-
-		return user;
+		return await _userRepository.Create(user);
 	}
 }
