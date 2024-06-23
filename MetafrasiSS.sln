@@ -13,9 +13,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetafrasiSS.Infra", "src\Me
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{33EC1E3A-8E74-4F48-874F-572BDCE2D8ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectureTests", "tests\ArchitectureTests\ArchitectureTests.csproj", "{5245926B-D8FD-4E50-8419-DFD5B271C123}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArchitectureTests", "tests\ArchitectureTests\ArchitectureTests.csproj", "{5245926B-D8FD-4E50-8419-DFD5B271C123}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetafrasiSS.Web", "src\MetafrasiSS.Web\MetafrasiSS.Web.csproj", "{E54B28CC-42FE-4C4E-A767-DEA68EF65550}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetafrasiSS.Web", "src\MetafrasiSS.Web\MetafrasiSS.Web.csproj", "{E54B28CC-42FE-4C4E-A767-DEA68EF65550}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{01815D1D-FE4A-4050-A5B0-EF28481C4987}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		Directory.Build.props = Directory.Build.props
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
