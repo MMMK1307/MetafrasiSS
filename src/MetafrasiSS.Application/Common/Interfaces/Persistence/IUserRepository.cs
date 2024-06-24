@@ -7,15 +7,15 @@ namespace MetafrasiSS.Application.Common.Interfaces.Persistence;
 
 public interface IUserRepository
 {
-	Task<ErrorOr<User>> Create(User userData);
+    Task<ErrorOr<User>> Create(User userData);
 
-	Task<bool> Update(User user);
+    Task<bool> Update(User user);
 
-	Task<ErrorOr<bool>> Login(string username, string password, bool rememberMe);
+    Task<ErrorOr<bool>> Login(string username, string password, bool rememberMe);
 
-	Task<bool> Logout();
+    Task<bool> Logout();
 
-	Task<User> GetById(UserId userId);
+    Task<User> GetById(UserId userId);
 
-	Task<ErrorOr<User>> GetUserByClaims(ClaimsPrincipal claims);
+    Task<ErrorOr<User>> GetUserByClaims(ClaimsPrincipal claims);
 }

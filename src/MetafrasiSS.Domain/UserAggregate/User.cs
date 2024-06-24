@@ -15,7 +15,8 @@ public class User : AggregateRoot<UserId, Guid>
         string password,
         UserStatus status,
         DateTime created,
-        DateTime updated) : base(id)
+        DateTime updated)
+     : base(id)
     {
         UserName = userName;
         Name = name;
@@ -52,7 +53,7 @@ public class User : AggregateRoot<UserId, Guid>
     {
     }
 
-    public User()
+    private User()
     {
     }
 

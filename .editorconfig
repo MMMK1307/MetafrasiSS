@@ -226,7 +226,7 @@ dotnet_naming_style.begins_with_i.required_prefix = I
 dotnet_naming_style.begins_with_i.required_suffix = 
 dotnet_naming_style.begins_with_i.word_separator = 
 dotnet_naming_style.begins_with_i.capitalization = pascal_case
-csharp_style_prefer_primary_constructors = true:suggestion
+csharp_style_prefer_primary_constructors = false:suggestion
 dotnet_diagnostic.SA1600.severity = none
 dotnet_diagnostic.SA1101.severity = none
 dotnet_diagnostic.SA1200.severity = none
@@ -238,6 +238,17 @@ dotnet_diagnostic.SA1309.severity = none
 dotnet_diagnostic.SA1516.severity = none
 dotnet_diagnostic.SA1122.severity = none
 dotnet_diagnostic.SA1009.severity = none
+dotnet_diagnostic.SA1000.severity = none
+dotnet_diagnostic.S1118.severity = none
+dotnet_diagnostic.SA0001.severity = none
+dotnet_diagnostic.SA1208.severity = none
+dotnet_diagnostic.SA1601.severity = none
+dotnet_diagnostic.S4035.severity = none
+dotnet_diagnostic.S4035.severity = none
+dotnet_diagnostic.SA1401.severity = none
+dotnet_diagnostic.S1104.severity = none
+dotnet_diagnostic.S6605.severity = none
+
 
 [*.{cs,vb}]
 dotnet_style_operator_placement_when_wrapping = beginning_of_line
@@ -250,7 +261,7 @@ dotnet_style_prefer_is_null_check_over_reference_equality_method = true:suggesti
 dotnet_style_null_propagation = true:suggestion
 dotnet_style_prefer_auto_properties = true:silent
 dotnet_style_object_initializer = true:suggestion
-dotnet_style_prefer_collection_expression = true:suggestion
+dotnet_style_prefer_collection_expression = false:suggestion
 dotnet_style_collection_initializer = true:suggestion
 dotnet_style_prefer_simplified_boolean_expressions = true:suggestion
 dotnet_style_prefer_conditional_expression_over_assignment = true:silent
@@ -262,6 +273,9 @@ dotnet_style_prefer_compound_assignment = true:suggestion
 dotnet_style_prefer_simplified_interpolation = true:suggestion
 dotnet_style_namespace_match_folder = true:suggestion
 
-[**\Migrations\**.cs]
+[*/MetafrasiSS.Infra/Migrations/*.cs]
 generated_code = true
 dotnet_analyzer_diagnostic.severity = none
+dotnet_diagnostic.SA1413severity = none
+dotnet_diagnostic.CA1822.severity = none
+dotnet_diagnostic.CS8981.severity = none

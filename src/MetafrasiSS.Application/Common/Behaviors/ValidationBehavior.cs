@@ -40,6 +40,8 @@ public class ValidationBehavior<TRequest, TResponse> :
                 validationFailure.PropertyName,
                 validationFailure.ErrorMessage));
 
+        Console.WriteLine(errors);
+
         return TryCreateResponseFromErrors(validationResult.Errors, out var response)
             ? response
             : throw new ValidationException(validationResult.Errors);

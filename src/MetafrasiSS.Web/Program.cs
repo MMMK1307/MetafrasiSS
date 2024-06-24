@@ -6,6 +6,7 @@ using MetafrasiSS.Infra.Persistence;
 using MetafrasiSS.Infra.Persistence.Repositories;
 using MetafrasiSS.Infra.Services;
 using MetafrasiSS.Web.Common;
+
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -29,7 +30,7 @@ try
     builder.Services.AddRazorPages();
     builder.Services.AddAuthorization();
 
-    //Infra
+    // Infra
     builder.Services.AddMappings();
     builder.Services.AddScoped<IDateTimeProvider, DateTimeProvider>();
     builder.Services.AddScoped<IUserRepository, UserRepository>();
@@ -43,7 +44,6 @@ try
     if (!app.Environment.IsDevelopment())
     {
         app.UseExceptionHandler("/Home/Error");
-        // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
         app.UseHsts();
     }
 
@@ -58,8 +58,10 @@ try
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
 
-    app.Run();
+    await app.RunAsync();
 }
-catch (Exception)
+catch (Exception ex)
 {
+    Console.WriteLine(ex);
+    throw;
 }

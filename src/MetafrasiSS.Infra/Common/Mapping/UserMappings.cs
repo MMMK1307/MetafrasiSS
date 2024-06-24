@@ -32,7 +32,7 @@ public static class UserMappings
             Status = domainUser.Status,
             Created = domainUser.Created,
             Updated = domainUser.Updated,
-            EmailConfirmed = domainUser.ConfirmedEmail
+            EmailConfirmed = domainUser.ConfirmedEmail,
         };
     }
 }

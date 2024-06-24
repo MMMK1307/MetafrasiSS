@@ -1,5 +1,4 @@
-﻿using MapsterMapper;
-using MediatR;
+﻿using MediatR;
 using MetafrasiSS.Application.Auth.Queries.GetUserByClaims;
 using MetafrasiSS.Application.ProjectApp.Commands.Create;
 using MetafrasiSS.Application.ProjectApp.Commands.Update;
@@ -17,12 +16,10 @@ namespace MetafrasiSS.Web.Controllers;
 public class ProjectController : BaseController
 {
     private readonly ISender _mediator;
-    private readonly IMapper _mapper;
 
-    public ProjectController(ISender mediator, IMapper mapper)
+    public ProjectController(ISender mediator)
     {
         _mediator = mediator;
-        _mapper = mapper;
     }
 
     public async Task<IActionResult> MyProjects()

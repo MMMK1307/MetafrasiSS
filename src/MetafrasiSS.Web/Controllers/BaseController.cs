@@ -11,7 +11,7 @@ public class BaseController : Controller
     {
         return RedirectToAction(controllerName: "Home", actionName: "Index");
     }
- 
+
     public IActionResult ToLogin()
     {
         return RedirectToAction(actionName: "Login", controllerName: "Auth");

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace MetafrasiSS.Web.Models.UserModels;
 
@@ -17,5 +18,7 @@ public class LoginUserModel
     [Required]
     public string Password { get; set; }
 
+    [Required]
+    [JsonRequired]
     public bool RememberMe { get; set; }
 }

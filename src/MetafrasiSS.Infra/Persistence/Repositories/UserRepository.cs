@@ -13,110 +13,110 @@ namespace MetafrasiSS.Infra.Persistence.Repositories;
 
 public class UserRepository : IUserRepository
 {
-	private readonly UserManager<DataUserModel> _userManager;
-	private readonly SignInManager<DataUserModel> _signInManager;
-	private readonly IdDataContext _dbContext;
+    private readonly UserManager<DataUserModel> _userManager;
+    private readonly SignInManager<DataUserModel> _signInManager;
+    private readonly IdDataContext _dbContext;
 
-	public UserRepository(
-		UserManager<DataUserModel> userManager,
-		SignInManager<DataUserModel> signInManager,
-		IdDataContext dbContext)
-	{
-		_userManager = userManager;
-		_signInManager = signInManager;
-		_dbContext = dbContext;
-	}
+    public UserRepository(
+        UserManager<DataUserModel> userManager,
+        SignInManager<DataUserModel> signInManager,
+        IdDataContext dbContext)
+    {
+        _userManager = userManager;
+        _signInManager = signInManager;
+        _dbContext = dbContext;
+    }
 
-	public async Task<ErrorOr<User>> Create(User userData)
-	{
-		var user = Activator.CreateInstance<DataUserModel>();
+    public async Task<ErrorOr<User>> Create(User userData)
+    {
+        var user = Activator.CreateInstance<DataUserModel>();
 
-		user.UserName = userData.UserName;
-		user.Email = userData.Email;
-		user.Name = userData.Name;
-		user.Created = userData.Created;
-		user.Updated = userData.Updated;
+        user.UserName = userData.UserName;
+        user.Email = userData.Email;
+        user.Name = userData.Name;
+        user.Created = userData.Created;
+        user.Updated = userData.Updated;
 
-		var result = await _userManager.CreateAsync(user, userData.Password);
+        var result = await _userManager.CreateAsync(user, userData.Password);
 
-		if (!result.Succeeded)
-		{
-			return Errors.Auth.InvalidPassword;
-		}
+        if (!result.Succeeded)
+        {
+            return Errors.Auth.InvalidPassword;
+        }
 
-		await _userManager.SetLockoutEnabledAsync(user, false);
+        await _userManager.SetLockoutEnabledAsync(user, false);
 
-		return userData;
-	}
+        return userData;
+    }
 
-	public async Task<bool> Update(User user)
-	{
-		var dbUser = await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == user.Id.Value);
+    public async Task<bool> Update(User user)
+    {
+        var dbUser = await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == user.Id.Value);
 
-		if (dbUser == null)
-		{
-			return false;
-		}
+        if (dbUser == null)
+        {
+            return false;
+        }
 
-		dbUser.Name = user.Name;
-		dbUser.UserName = user.UserName;
-		dbUser.Email = user.Email;
-		dbUser.Updated = user.Updated;
+        dbUser.Name = user.Name;
+        dbUser.UserName = user.UserName;
+        dbUser.Email = user.Email;
+        dbUser.Updated = user.Updated;
 
-		_dbContext.Users.Update(dbUser);
-		await _dbContext.SaveChangesAsync();
+        _dbContext.Users.Update(dbUser);
+        await _dbContext.SaveChangesAsync();
 
-		return true;
-	}
+        return true;
+    }
 
-	public async Task<ErrorOr<bool>> Login(string username, string password, bool rememberMe)
-	{
-		_ = await Logout();
+    public async Task<ErrorOr<bool>> Login(string username, string password, bool rememberMe)
+    {
+        _ = await Logout();
 
-		var result = await _signInManager.PasswordSignInAsync(username, password, rememberMe, lockoutOnFailure: false);
+        var result = await _signInManager.PasswordSignInAsync(username, password, rememberMe, lockoutOnFailure: false);
 
-		if (result.Succeeded)
-		{
-			return true;
-		}
+        if (result.Succeeded)
+        {
+            return true;
+        }
 
-		if (result.IsLockedOut)
-		{
-			return Errors.Auth.LockedOut;
-		}
+        if (result.IsLockedOut)
+        {
+            return Errors.Auth.LockedOut;
+        }
 
-		return Errors.Auth.InvalidCredentials;
-	}
+        return Errors.Auth.InvalidCredentials;
+    }
 
-	public async Task<bool> Logout()
-	{
-		await _signInManager.SignOutAsync();
-		return true;
-	}
+    public async Task<bool> Logout()
+    {
+        await _signInManager.SignOutAsync();
+        return true;
+    }
 
-	public async Task<User> GetById(UserId userId)
-	{
-		var id = userId.Value;
+    public async Task<User> GetById(UserId userId)
+    {
+        var id = userId.Value;
 
-		var dbUser = await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == id);
+        var dbUser = await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == id);
 
-		if (dbUser == null)
-		{
-			return default!;
-		}
+        if (dbUser == null)
+        {
+            return default!;
+        }
 
-		return dbUser.ToDomainUser();
-	}
+        return dbUser.ToDomainUser();
+    }
 
-	public async Task<ErrorOr<User>> GetUserByClaims(ClaimsPrincipal claims)
-	{
-		var user = await _userManager.GetUserAsync(claims);
+    public async Task<ErrorOr<User>> GetUserByClaims(ClaimsPrincipal claims)
+    {
+        var user = await _userManager.GetUserAsync(claims);
 
-		if (user is null)
-		{
-			return Errors.Auth.NotFound;
-		}
+        if (user is null)
+        {
+            return Errors.Auth.NotFound;
+        }
 
-		return user.ToDomainUser();
-	}
+        return user.ToDomainUser();
+    }
 }

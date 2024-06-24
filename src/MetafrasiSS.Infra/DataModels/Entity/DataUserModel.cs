@@ -6,7 +6,8 @@ namespace MetafrasiSS.Infra.DataModels.Entity;
 public class DataUserModel : IdentityUser<Guid>
 {
     public DataUserModel()
-    { }
+    {
+    }
 
     public string Name { get; set; } = null!;
     public UserStatus Status { get; set; }

@@ -1,5 +1,4 @@
-﻿using MapsterMapper;
-using MediatR;
+﻿using MediatR;
 using MetafrasiSS.Application.Auth.Queries.GetUserByClaims;
 using MetafrasiSS.Application.Auth.Queries.Login;
 using MetafrasiSS.Application.Auth.Queries.Logout;
@@ -14,12 +13,10 @@ namespace MetafrasiSS.Web.Controllers;
 public class AuthController : BaseController
 {
     private readonly ISender _mediator;
-    private readonly IMapper _mapper;
 
-    public AuthController(ISender mediator, IMapper mapper)
+    public AuthController(ISender mediator)
     {
         _mediator = mediator;
-        _mapper = mapper;
     }
 
     public IActionResult Login()

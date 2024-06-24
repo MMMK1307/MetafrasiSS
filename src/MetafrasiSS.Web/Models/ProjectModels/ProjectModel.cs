@@ -16,9 +16,9 @@ public class ProjectModel
     [MaxLength(500)]
     public string Description { get; set; }
 
-    public DateTime Created { get; set; }
+    public DateTime? Created { get; set; }
 
-    public DateTime Updated { get; set; }
+    public DateTime? Updated { get; set; }
 
     public UserId UserId { get; set; }
 

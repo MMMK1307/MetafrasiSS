@@ -45,13 +45,19 @@
                         <div class="project-panel-title-small">
                             Created At:
                         </div>
-                        @projects[i].Created.ToString("dd/MM/yyyy")
+                        @if (projects[i].Created is not null)
+                        {
+                            @projects[i].Created!.Value.ToString("dd/MM/yyyy")
+                        }
                     </div>
                     <div class="project-panel-desc">
                         <div class="project-panel-title-small">
                             Updated at:
                         </div>
-                        @projects[i].Updated.ToString("dd/MM/yyyy")
+                        @if (projects[i].Updated is not null)
+                        {
+                            @projects[i].Updated!.Value.ToString("dd/MM/yyyy")
+                        }
                     </div>
                 </div>
                 <div class="project-panel-multi">
@@ -98,13 +104,19 @@
                                 <div class="project-panel-title-small">
                                     Created At:
                                 </div>
-                                @projects[i].Created.ToString("dd/MM/yyyy")
+                                @if (projects[i].Created is not null)
+                                {
+                                    @projects[i].Created!.Value.ToString("dd/MM/yyyy")
+                                }
                             </div>
                             <div class="project-panel-desc">
                                 <div class="project-panel-title-small">
                                     Updated at:
                                 </div>
-                                @projects[i].Updated.ToString("dd/MM/yyyy")
+                                @if (projects[i].Updated is not null)
+                                {
+                                    @projects[i].Updated!.Value.ToString("dd/MM/yyyy")
+                                }
                             </div>
                         </div>
                         <div class="project-panel-multi">

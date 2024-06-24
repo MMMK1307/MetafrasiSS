@@ -7,6 +7,10 @@ namespace MetafrasiSS.Domain.ProjectAggregate;
 
 public class Project : AggregateRoot<ProjectId, Guid>
 {
+    public Guid _userId;
+
+    private readonly List<ProjectFile> _files = new();
+
     public Project(
         ProjectId id,
         string name,
@@ -29,20 +33,11 @@ public class Project : AggregateRoot<ProjectId, Guid>
     {
     }
 
-    public string Name { get; } = null!;
-
-    public string Description { get; } = null!;
-
     public DateTime Created { get; }
-
-    public DateTime Updated { get; }
-
-    private readonly List<ProjectFile> _files = new();
-
+    public string Description { get; } = null!;
     public IReadOnlyList<ProjectFile> Files => _files.AsReadOnly();
-
-    public Guid _userId;
-
+    public string Name { get; } = null!;
+    public DateTime Updated { get; }
     public UserId UserId { get => UserId.Create(_userId); set => _userId = value.Value; }
 
     public static Project Create(

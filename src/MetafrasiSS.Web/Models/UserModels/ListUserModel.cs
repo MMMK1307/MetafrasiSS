@@ -26,10 +26,6 @@ public class ListUserModel
         Updated = updated;
     }
 
-    public ListUserModel()
-    {
-    }
-
     public UserId Id { get; set; }
 
     [MaxLength(300)]
