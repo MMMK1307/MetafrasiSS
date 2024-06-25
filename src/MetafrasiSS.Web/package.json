@@ -1,0 +1,19 @@
+{
+  "name": "metafrasiss.web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "css:build": "npx tailwindcss -i ./wwwroot/css/app_base.css -o ./wwwroot/css/app.css --minify",
+    "tail-dev": "npx tailwindcss -i ./wwwroot/css/app_base.css -o ./wwwroot/css/app.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "tailwindcss": "^3.4.4"
+  },
+  "dependencies": {
+    "@tailwindcss/forms": "^0.5.7"
+  }
+}
