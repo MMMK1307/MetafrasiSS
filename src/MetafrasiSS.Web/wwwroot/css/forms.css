@@ -1,0 +1,216 @@
+h1 {
+    font-size: 36px;
+    color: #ffffff;
+    text-align: center;
+}
+
+form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2%;
+    background-color: #00000051;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px black;
+}
+
+    form div {
+        margin-bottom: 1rem;
+    }
+
+@media (max-width: 850px) {
+    form {
+        max-width: 80%;
+    }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+textarea,
+select {
+    display: block;
+    width: 100%;
+    height: 1.5rem;
+    padding: 10px;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px white;
+}
+
+input[type="reset"],
+input[type="submit"],
+button[type="submit"] {
+    display: inline-block;
+    color: white;
+    padding: 0.5rem;
+    width: 90%;
+    margin: 3%;
+    font-size: 16px;
+    background-color: #0000002f;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px black;
+    transition: ease 0.3s;
+}
+
+    button[type="submit"]:hover {
+        box-shadow: 4px 4px 4px black;
+        background-color: #00000054;
+    }
+
+
+input[type="reset"] {
+    background-color: red;
+    padding: 15rex;
+}
+
+input[type="submit"] {
+    background-color: #1ac762;
+    padding: 15rex;
+}
+
+form input[type="checkbox"],
+input[type="radio"] {
+    display: inline-block;
+}
+
+form ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+    form ul li {
+        margin-bottom: 10px;
+    }
+
+form a {
+    background-color: #229ad1;
+    padding: 13px 20px;
+    border-radius: 5px;
+    color: #dbdbdb;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.center-button {
+    text-align: center;
+}
+
+.button-login {
+    margin: 50px auto;
+}
+
+.main-container {
+    margin-top: 5rem;
+}
+
+form hr {
+    margin-bottom: 1rem;
+}
+
+.text-error {
+    font-size: 0.8rem;
+    color: red;
+}
+
+form input[type="file"] {
+    display: none;
+}
+
+
+
+.form-file-label {
+    display: inline-block;
+    background-color: #00000054;
+    text-align: center;
+    font-size: 0.8rem;
+    border-radius: 0.2rem;
+    padding: 0.5rem 0.3rem;
+    cursor: pointer;
+    transition: background-color 1s;
+    box-shadow: 2px 2px 2px black;
+    transition: ease 0.3s;
+}
+
+    .form-file-label:hover {
+        box-shadow: 4px 4px 4px black;
+        background: #00000086;
+    }
+
+
+/*---------------------------------------------------------------------*/
+
+.project-container {
+    display: block;
+}
+
+.project-panel{
+    border-radius: 15px;
+}
+
+.project-panel-container {
+    margin: 1px 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.project-panel {
+    padding: 0.2rem 0.5rem;
+    border: solid 2px var(--clr-background-contrast);
+    margin: 1rem 0rem;
+    background: #09090971;
+    min-width: 50%;
+}
+
+.project-panel-multi {
+    display: flex;
+    gap: 1rem;
+}
+
+
+.project-panel-title {
+    border-bottom: solid 2px var(--clr-primary-soft2);
+}
+
+    .project-panel-title h2 {
+        margin: 0rem;
+    }
+
+.project-panel-desc {
+    margin: 0.5rem 0rem;
+}
+
+    .project-panel-desc p {
+        margin: 0rem;
+    }
+
+.project-panel p {
+    margin: 0rem;
+    margin: 0.5rem 0rem;
+    color: var(--clr-font-soft);
+    font-size: 0.75rem;
+}
+
+.project-panel-title-small {
+    color: var(--clr-primary-soft2);
+    font-size: 0.74rem;
+}
+
+@media (max-width: 300px){
+    .project-panel-multi{
+        display: block;
+    }
+}
+
+@media (max-width: 500px){
+    .project-panel-container{
+        display: block;
+    }
+}

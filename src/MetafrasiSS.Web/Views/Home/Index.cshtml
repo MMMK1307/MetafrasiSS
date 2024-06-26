@@ -13,19 +13,20 @@
 <section id="background">
     <img src="~/imgs/web/Planet.webp" id="planet" alt="">
     <img src="~/imgs/web/Clouds.webp" id="clouds" alt="">
-    <p id="bg-text">Metafrasi</p>
+    <p class="text-center" id="bg-text">METAFRASI</p>
+    <p class="text-center" id="bg-sub-text">- the site state -</p>
     <img src="~/imgs/web/Planet2.webp" id="planet2" alt="">
     <img src="~/imgs/web/Space2.webp" id="space" alt="">
 </section>
 
 
 <section class="home">
-    <div class="home-box" loading="lazy">
+    <div class="home-box">
         <div class="home-content">
 
             <h3 class="reveal fade-bottom">Hello, It's me</h3>
             <h1 class="big-text reveal fade-right">Gummercynd</h1>
-            <h3 class="reveal fade-top">And I'm a <span class="typed-text glow-text"></span></h3>
+            <h3 class="reveal fade-right">And I'm a <span class="typed-text glow-text ml-[5px]"></span></h3>
             <p class="reveal fade-left">It's a pleasure to meet you</p>
 
             <div class="home-sci">
@@ -44,8 +45,8 @@
 <section class="about" id="about">
     <div class="about-text">
         <h2>About <span class="glow-text">Us</span></h2>
-        <h4>A Programing Transtalor</h4>
-        <p>
+        <h4 class="text-red">A Programing Translator</h4>
+        <p class="text-center text-blue">
             Metafrasi is a tool that helps developers translate code between different programming languages.
             It supports languages such as Python, JavaScript, C# and C.
             This tool can be a valuable asset for both technology students and experienced developers. It enables students to understand code and assists more experienced developers who wish to study or migrate the primary language of a project.
@@ -143,6 +144,7 @@
     let planet2 = document.getElementById("planet2");
     let space = document.getElementById("space");
     let bgText = document.getElementById("bg-text");
+    let subText = document.getElementById("bg-sub-text");
 
     let scrollValue = 0;
 
@@ -159,6 +161,7 @@
         planet2.style.top = newPosition(0.337);
         planet2.style.left = newPosition(-0.2);
         bgText.style.marginRight = newPosition(4);
+        subText.style.marginLeft = newPosition(4);
 
     });
 </script>
