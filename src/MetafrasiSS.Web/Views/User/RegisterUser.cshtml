@@ -4,48 +4,57 @@
 @{
     ViewData["Title"] = "Registration";
 }
-
-<div class="main-container">
-    <form asp-controller="User" asp-action="RegisterUser" method="post" style="color: aliceblue;">
-
-        <h2>Registration</h2>
-        <hr />
-
-        <div asp-validation-summary="ModelOnly"></div>
-
-        <div>
-            <label asp-for="@Model.Name">Name</label>
-            <input asp-for="@Model.Name" autocomplete="Name" aria-required="true" />
-            <span class="text-error" asp-validation-for="@Model.Name"></span>
-        </div>
-
-        <div>
-            <label asp-for="@Model.Username">UserName</label>
-            <input asp-for="@Model.Username" autocomplete="username" aria-required="true" />
-            <span class="text-error" asp-validation-for="@Model.Username"></span>
-        </div>
-
-        <div>
-            <label asp-for="@Model.Email">Email</label>
-            <input asp-for="@Model.Email" autocomplete="Email" aria-required="true" />
-            <span class="text-error" asp-validation-for="@Model.Email"></span>
-        </div>
-
-        <div>
-            <label asp-for="@Model.Password">Password</label>
-            <input asp-for="@Model.Password" type="password" autocomplete="current-password" aria-required="true" />
-            <span class="text-error" asp-validation-for="@Model.Password"></span>
-        </div>
-
-        <div>
-            <label asp-for="@Model.ConfirmPassword">ConfirmPassword</label>
-            <input asp-for="@Model.ConfirmPassword" type="password" autocomplete="ConfirmPassword" aria-required="true" />
-            <span class="text-error" asp-validation-for="@Model.ConfirmPassword"></span>
-        </div>
-
-        <label>
-            <button type="submit">Register!</button>
-        </label>
-
-    </form>
+<div class="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
+    <div class="mx-auto max-w-2xl">
+        <form asp-action="RegisterUser" method="post">
+            <div class="space-y-12 border-gray">
+                <div class="pb-0">
+                    <div class="flex justify-center items-center">
+                        <img height="100" width="100" src="~/imgs/altIcon.svg" alt="Metafrasi">
+                        <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">Sign Up to Metafrasi SS</h2>
+                    </div>
+                    <div class="mt-10 mx-auto max-w-2xl grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                        <div class="sm:col-span-3">
+                            <label asp-for="@Model.Name" class="block text-sm font-medium leading-6 text-white">Name</label>
+                            <div class="mt-2">
+                                <input asp-for="@Model.Name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            </div>
+                        </div>
+                        <div class="sm:col-span-3">
+                            <label asp-for="@Model.Username" class="block text-sm font-medium leading-6 text-white">Username</label>
+                            <div class="mt-2">
+                                <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                    <input asp-for="@Model.Username" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <span class="text-error" asp-validation-for="@Model.Name"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sm:col-span-full">
+                            <label asp-for="@Model.Email" class="block text-sm font-medium leading-6 text-white">Email address</label>
+                            <div class="mt-2">
+                                <input asp-for="@Model.Email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            </div>
+                        </div>
+                        <div class="sm:col-span-3">
+                            <label asp-for="@Model.Password" class="block text-sm font-medium leading-6 text-white">Password</label>
+                            <div class="mt-2">
+                                <input asp-for="@Model.Password" type="password" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            </div>
+                        </div>
+                        <div class="sm:col-span-3">
+                            <label asp-for="@Model.ConfirmPassword" class="block text-sm font-medium leading-6 text-white">Confirm password</label>
+                            <div class="mt-2">
+                                <input asp-for="@Model.ConfirmPassword" type="password" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="relative w-full inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                    <span class="relative w-full px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-[#001c29] rounded-md group-hover:bg-opacity-0">
+                        Sign Up
+                    </span>
+                </button>
+            </div>
+        </form>
+    </div>
 </div>

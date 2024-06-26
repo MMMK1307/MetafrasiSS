@@ -3,37 +3,46 @@
 @{
     ViewData["Title"] = "Login";
 }
-
-<div class="main-container">
-    <form asp-controller="Auth" asp-action="Login" method="post" style="color: aliceblue;">
-
-        <h2>Login</h2>
-        <hr />
-
-        <div asp-validation-summary="ModelOnly"></div>
-
-        <div>
-            <label asp-for="@Model.Username">UserName</label>
-            <input asp-for="@Model.Username" autocomplete="username" aria-required="true" />
-            <span class="text-error" asp-validation-for="@Model.Username"></span>
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <div class="flex justify-center items-center">
+            <img height="100" width="100" src="~/imgs/altIcon.svg" alt="Metafrasi">
+            <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">Sign Up to Metafrasi SS</h2>
         </div>
-        
-        <div>
-            <label asp-for="@Model.Password">Password</label>
-            <input asp-for="@Model.Password" type="password" autocomplete="current-password" aria-required="true" />
-            <span class="text-error" asp-validation-for="@Model.Password"></span>
-        </div>
-        
-        <div style="margin-bottom: 0">
-            <label asp-for="@Model.RememberMe">
-                <input asp-for="@Model.RememberMe" />
-                <small>Remember Me!</small>
-            </label>
-        </div>
+        <form asp-controller="Auth" asp-action="Login" method="post" class="mt-10 m-sm space-y-6">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div>
+                <label asp-for="@Model.Username" class="block text-sm font-medium leading-6 text-white">Username</label>
+                <div class="mt-2">
+                    <input asp-for="@Model.Username" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+                <span class="text-sm text-red-600" asp-validation-for="@Model.Username"></span>
+            </div>
 
-        <label>
-            <button type="submit">Login</button>
-        </label>
+            <div>
+                <div class="flex items-center justify-between">
+                    <label asp-for="@Model.Password" class="block text-sm font-medium leading-6 text-white">Password</label>
+                    <div class="text-sm">
+                        <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <input asp-for="@Model.Password" type="password" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+                <span class="text-sm text-red-600" asp-validation-for="@Model.Password"></span>
+            </div>
 
-    </form>
+            <div style="margin-bottom: 0">
+                <label asp-for="@Model.RememberMe">
+                    <input asp-for="@Model.RememberMe" />
+                    <small>Remember Me!</small>
+                </label>
+            </div>
+            <button type="submit" class="relative w-full inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                <span class="relative w-full px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-[#001c29] rounded-md group-hover:bg-opacity-0">
+                    Sign In
+                </span>
+            </button>
+        </form>
+    </div>
 </div>

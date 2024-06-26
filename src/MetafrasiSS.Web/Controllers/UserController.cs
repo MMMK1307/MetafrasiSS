@@ -40,7 +40,7 @@ public class UserController : BaseController
             Problem(result.Errors, View());
         }
 
-        return View();
+        return RedirectToAction(controllerName: "Auth", actionName: "Login");
     }
 
     public IActionResult UpdateUser()

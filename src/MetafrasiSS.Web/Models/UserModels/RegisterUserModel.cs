@@ -18,6 +18,10 @@ public class RegisterUserModel
         ConfirmPassword = confirmPassword;
     }
 
+    public RegisterUserModel()
+    {
+    }
+
     [MaxLength(300)]
     [Required]
     public string Name { get; set; }
