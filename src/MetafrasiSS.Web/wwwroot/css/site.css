@@ -145,7 +145,7 @@ body {
     display: none;
 }
 
-.navbar .menu a {
+.navbar .menu .menu-item {
     display: inline-block;
     font-size: 1rem;
     color: white;
@@ -158,9 +158,33 @@ body {
     animation-delay: calc(.2s * var(--i));
 }
 
-    .navbar .menu a:hover {
+    .navbar .menu .menu-item:hover {
         color: #0ef;
     }
+
+.navbar .menu .dropdown {
+    position: absolute;
+    z-index: 999;
+    display: none;
+    width: 100%;
+}
+
+    .navbar .menu .dropdown li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #001c297e;
+        width: 100%;
+        padding: 3px;
+    }
+
+.navbar .menu .menu-item:hover .dropdown {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 21px;
+}
 
 .home-box {
     display: flex;

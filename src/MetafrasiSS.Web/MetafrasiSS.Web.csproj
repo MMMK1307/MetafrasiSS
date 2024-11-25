@@ -33,7 +33,32 @@
 	<UpToDateCheckBuilt Include="tailwind.config.js" Set="Css" />
   </ItemGroup>
 
+  <PropertyGroup>
+	<EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<EmbeddedResource Include="Resources\Views\Home\Index.it.resx" />
+	<EmbeddedResource Include="Resources\Views\Home\Index.ja.resx" />
+	<EmbeddedResource Include="Resources\Views\Home\Index.de.resx" />
+	<EmbeddedResource Include="Resources\Views\Home\Index.pt.resx" />
+	<EmbeddedResource Include="Resources\Views\Home\Index.fr.resx" />
+	<EmbeddedResource Include="Resources\Views\Home\Index.en.resx" />
+	<EmbeddedResource Include="Resources\Views\Home\Index.resx" />
+	<EmbeddedResource Include="Resources\Views\Shared\_Layout.fr.resx" />
+	<EmbeddedResource Include="Resources\Views\Shared\_Layout.en.resx" />
+	<EmbeddedResource Include="Resources\Views\Shared\_Layout.pt.resx" />
+	<EmbeddedResource Include="Resources\Views\Shared\_Layout.resx" />
+	<EmbeddedResource Include="Resources\Views\Shared\_Login.it.resx" />
+	<EmbeddedResource Include="Resources\Views\Shared\_Login.ja.resx" />
+	<EmbeddedResource Include="Resources\Views\Shared\_Login.de.resx" />
+	<EmbeddedResource Include="Resources\Views\Shared\_Login.pt.resx" />
+	<EmbeddedResource Include="Resources\Views\Shared\_Login.fr.resx" />
+	<EmbeddedResource Include="Resources\Views\Shared\_Login.en.resx" />
+	<EmbeddedResource Include="Resources\Views\Shared\_Login.resx" />
+  </ItemGroup>
+
   <Target Name="Tailwind" BeforeTargets="Build">
-    <Exec Command="npm run css:build"/>
+    <Exec Command="npm run css:build" />
   </Target>
 </Project>
