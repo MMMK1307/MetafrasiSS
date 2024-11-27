@@ -8,15 +8,26 @@
 @if (auth)
 {
     <div class="menu">
-        <a asp-controller="Home" asp-action="Index" class="active">Home</a>
-        <a asp-controller="Project" asp-action="MyProjects" style="--i:1">Projects</a>
-        <a asp-controller="Auth" asp-action="Logout" style="--i:3">Sign Out</a>
+        <a asp-controller="Home" asp-action="Index" class="active">@Localizer["home"]</a>
+        <a asp-controller="Project" asp-action="MyProjects" style="--i:1">@Localizer["projects"]</a>
+        <a asp-controller="Auth" asp-action="Logout" style="--i:3">@Localizer["signOut"]</a>
     </div>
 } else{
     <div class="menu">
-        <a asp-controller="Home" asp-action="Index" class="active">Home</a>
-        <a asp-controller="Project" asp-action="MyProjects" style="--i:1">Projects</a>
-        <a asp-controller="User" asp-action="RegisterUser" style="--i:2">Sign Up</a>
-        <a asp-controller="Auth" asp-action="Login" style="--i:3">Sign In</a>
+        <div class="dropdown-box menu-item">
+            <a href="#" class="dropdown-btn">@Localizer["changeLanguage"] v</a>
+            <ul class="dropdown">
+                <li><a href="/Home/Index?culture=en">En</a></li>
+                <li><a href="/Home/Index?culture=fr">Fr</a></li>
+                <li><a href="/Home/Index?culture=pt">Pt</a></li>
+                <li><a href="/Home/Index?culture=de">De</a></li>
+                <li><a href="/Home/Index?culture=ja">Ja</a></li>
+                <li><a href="/Home/Index?culture=it">It</a></li>
+            </ul>   
+        </div>
+        <a asp-controller="Home" asp-action="Index" class="active menu-item">@Localizer["home"]</a>
+        <a asp-controller="Project" asp-action="MyProjects" style="--i:1" class="menu-item">@Localizer["projects"]</a>
+        <a asp-controller="User" asp-action="RegisterUser" style="--i:2" class="menu-item">@Localizer["signUp"]</a>
+        <a asp-controller="Auth" asp-action="Login" style="--i:3" class="menu-item">@Localizer["signIn"]</a>
     </div>
 }
