@@ -9,6 +9,7 @@ using MetafrasiSS.Infra.Common.Configuration;
 using MetafrasiSS.Web.Common;
 
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,7 +17,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 try
 {
+<<<<<<< HEAD
     
+=======
+    builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+
+    builder.Services
+     .AddMvc()
+     .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
+
+>>>>>>> 0edc5a0febe855b7ab6c4b39c1421b389ffee5d8
     builder.Services.AddDbContext<IdDataContext>(options =>
     {
         options.UseSqlServer(builder.Configuration.GetConnectionString("DbContextConnection"));
@@ -45,6 +55,13 @@ try
 
     var app = builder.Build();
 
+    var supportedCultures = new[] { "en", "fr", "pt", "de", "ja", "it" };
+    var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultures[0])
+        .AddSupportedCultures(supportedCultures)
+        .AddSupportedUICultures(supportedCultures);
+
+    app.UseRequestLocalization(localizationOptions);
+
     // Configure the HTTP request pipeline.
     if (!app.Environment.IsDevelopment())
     {
@@ -58,7 +75,6 @@ try
     app.UseRouting();
 
     app.UseAuthorization();
-
     app.MapControllerRoute(
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");

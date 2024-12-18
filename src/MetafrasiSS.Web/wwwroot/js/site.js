@@ -28,3 +28,10 @@ const observer = new IntersectionObserver((entries) => {
 
 const hiddenElements = document.querySelectorAll('.reveal');
 hiddenElements.forEach((el) => observer.observe(el));
+
+const btn = document.querySelector('.dropdown-btn');
+const dropdownContent = document.querySelector('.dropdown-content');
+
+btn.addEventListener('click', function () {
+    dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+});
