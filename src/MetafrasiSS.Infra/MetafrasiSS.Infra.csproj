@@ -6,6 +6,10 @@
 	<Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Services\EmailService.cs~RF4878622.TMP" />
+  </ItemGroup>
+
 	<ItemGroup>
 		<PackageReference Include="Mapster" Version="7.4.0" />
 		<PackageReference Include="Mapster.DependencyInjection" Version="1.0.1" />

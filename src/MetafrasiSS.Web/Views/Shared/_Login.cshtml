@@ -8,14 +8,14 @@
 @if (auth)
 {
     <div class="menu">
-        <a asp-controller="Home" asp-action="Index" class="active">Home</a>
+        <a asp-controller="Project" asp-action="MyProjects" style="--i:1">Projects</a>
         <a asp-controller="Project" asp-action="MyProjects" style="--i:1">Projects</a>
         <a asp-controller="Auth" asp-action="Logout" style="--i:3">Sign Out</a>
     </div>
 } else{
     <div class="menu">
-        <a asp-controller="Home" asp-action="Index" class="active">Home</a>
-        <a asp-controller="Project" asp-action="MyProjects" style="--i:1">Projects</a>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
         <a asp-controller="User" asp-action="RegisterUser" style="--i:2">Sign Up</a>
         <a asp-controller="Auth" asp-action="Login" style="--i:3">Sign In</a>
     </div>

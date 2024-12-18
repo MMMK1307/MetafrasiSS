@@ -12,6 +12,10 @@
     <link rel="icon" type="image/x-icon" href="~/imgs/altIcon.svg">
     @* <script scr="~/js/alert.js"></script> *@
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="~/js/smooth-scroll.polyfills.min.js"></script>
+    <script>
+	    var scroll = new SmoothScroll('a[href*="#"]');
+    </script>
 </head>
 
 <body>
@@ -62,5 +66,4 @@
 <script src="~/js/site.js" asp-append-version="true"></script>
 @await RenderSectionAsync("Scripts", required: false)
 </body> *@
-
 </html>

@@ -5,6 +5,7 @@ using MetafrasiSS.Infra.DataModels.Entity;
 using MetafrasiSS.Infra.Persistence;
 using MetafrasiSS.Infra.Persistence.Repositories;
 using MetafrasiSS.Infra.Services;
+using MetafrasiSS.Infra.Common.Configuration;
 using MetafrasiSS.Web.Common;
 
 using Microsoft.AspNetCore.Identity;
@@ -15,6 +16,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 try
 {
+    
     builder.Services.AddDbContext<IdDataContext>(options =>
     {
         options.UseSqlServer(builder.Configuration.GetConnectionString("DbContextConnection"));
@@ -35,8 +37,11 @@ try
     builder.Services.AddScoped<IDateTimeProvider, DateTimeProvider>();
     builder.Services.AddScoped<IUserRepository, UserRepository>();
     builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
+    builder.Services.AddScoped<IEmailService, EmailService>();
 
     builder.Services.AddApplication();
+
+    builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SMTP"));
 
     var app = builder.Build();
 

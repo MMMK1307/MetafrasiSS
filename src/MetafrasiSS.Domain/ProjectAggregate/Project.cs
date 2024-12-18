@@ -33,10 +33,10 @@ public class Project : AggregateRoot<ProjectId, Guid>
     {
     }
 
-    public DateTime Created { get; }
-    public string Description { get; } = null!;
+    public string Name { get; }
+    public string Description { get; }
     public IReadOnlyList<ProjectFile> Files => _files.AsReadOnly();
-    public string Name { get; } = null!;
+    public DateTime Created { get; }
     public DateTime Updated { get; }
     public UserId UserId { get => UserId.Create(_userId); set => _userId = value.Value; }
 

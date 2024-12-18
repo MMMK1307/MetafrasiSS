@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("something");
-
     var container = document.getElementsByClassName("error-container")[0];
 
     if (!container) {

@@ -11,7 +11,7 @@
 
     <a asp-controller="Project" asp-action="Create" class="btn-secondary">Create a Project</a>
 
-    @if(projects.Count < 1)
+    @if (projects.Count < 1)
     {
         <h2 style="text-align: center;"> --- You have no projects --- </h2>
     }
@@ -64,7 +64,8 @@
                     <div class="project-panel-desc">
                         <div class="project-panel-title-small">
                         </div>
-                        <a asp-controller="Project" asp-action="Update" class="btn-primary" asp-route-ProjectId="@projects[i].Id.Value">Edit</a>
+                        <a asp-controller="Project" asp-action="Update" class="btn-primary"
+                            asp-route-ProjectId="@projects[i].Id.Value">Edit</a>
                     </div>
                     <div class="project-panel-desc">
                         <div class="project-panel-title-small">
@@ -104,11 +105,11 @@
                                 <div class="project-panel-title-small">
                                     Created At:
                                 </div>
-                                @if (projects[i].Created is not null)
-                                {
-                                    @projects[i].Created!.Value.ToString("dd/MM/yyyy")
-                                }
                             </div>
+                            @if (projects[i].Created is not null)
+                            {
+                                @projects[i].Created!.Value.ToString("dd/MM/yyyy hh:mm:ss.sss")
+                            }
                             <div class="project-panel-desc">
                                 <div class="project-panel-title-small">
                                     Updated at:
@@ -123,7 +124,8 @@
                             <div class="project-panel-desc">
                                 <div class="project-panel-title-small">
                                 </div>
-                                <a asp-controller="Project" asp-action="Update" class="btn-primary" asp-route-ProjectId="@projects[i].Id.Value">Edit</a>
+                                <a asp-controller="Project" asp-action="Update" class="btn-primary"
+                                    asp-route-ProjectId="@projects[i].Id.Value">Edit</a>
                             </div>
                             <div class="project-panel-desc">
                                 <div class="project-panel-title-small">
@@ -134,7 +136,6 @@
                     </div>
                 }
             }
-
         </div>
     }
 </div>

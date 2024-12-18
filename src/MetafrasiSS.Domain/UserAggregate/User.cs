@@ -57,12 +57,25 @@ public class User : AggregateRoot<UserId, Guid>
     {
     }
 
-    public string UserName { get; set; } = null!;
-    public string Name { get; set; } = null!;
-    public string Email { get; set; } = null!;
+    public string UserName { get; set; }
+    public string Name { get; set; }
+    public string Email { get; set; }
     public bool ConfirmedEmail { get; set; }
-    public string Password { get; set; } = null!;
+    public string Password { get; set; }
     public UserStatus Status { get; set; }
     public DateTime Created { get; set; }
     public DateTime Updated { get; set; }
+
+    public static User Create(string username, string name, string email, string password, UserStatus status, DateTime created, DateTime updated)
+    {
+        return new User(
+            userName: username,
+            name: name,
+            email: email,
+            confirmedEmail: false,
+            password: password,
+            status: status,
+            created: created,
+            updated: updated);
+    }
 }
